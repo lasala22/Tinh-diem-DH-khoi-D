@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính điểm ĐH khối D</h1>
+    <table>
+        <tr>
+            <td>Môn Toán</td>
+            <td><input type="number" id="toan"></td>
+        </tr>
+        <tr>
+            <td>Môn Văn</td>
+            <td><input type="number" id="van"></td>
+        </tr>
+        <tr>
+            <td>Môn Anh</td>
+            <td><input type="number" id="anh"></td>
+        </tr>
+        <tr>
+            <td>Khu Vực</td>
+            <td><select name="" id="kv">
+                <option value="1">KV1</option>
+                <option value="2">KV2</option>
+                <option value="2NT">KV-2NT</option>
+                <option value="3">KV3</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><button onclick="check()">Tính điểm</button></td>
+        </tr>
+    </table>
+    <div id="result" style="color: red;"></div>
+</body>
+</html>
+<script>
+    function check() {
+        let toan = parseInt(document.getElementById("toan").value);
+        let van = parseInt(document.getElementById("van").value);
+        let anh = parseInt(document.getElementById("anh").value);
+        let kv = document.getElementById("kv").value;
+        let tong = toan + van + anh;
+        switch(kv) {
+            case "1":
+                tong += 0.75;
+                break;
+            case "2":
+                tong += 0.25;
+                break;
+            case "2NT":
+                tong += 0.5;
+                break;
+        }
+        document.getElementById("result").innerHTML ="Tổng điểm ĐH khối D của bạn là: " + tong ;
+    }
+</script>
